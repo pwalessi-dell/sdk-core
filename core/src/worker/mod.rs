@@ -516,8 +516,12 @@ impl Worker {
                         self.non_local_activities_complete
                             .store(true, Ordering::Relaxed);
                         return Ok(None);
+                    } else {
+                        println!("No match PollActivityError::ShutDown");
                     }
-                };
+                } else {
+                    println!("No match");
+                }
                 res.map(Some)
             } else {
                 // We expect the local activity branch below to produce shutdown when appropriate if

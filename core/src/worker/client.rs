@@ -179,6 +179,7 @@ impl WorkerClient for WorkerClientBag {
         task_queue: String,
         max_tasks_per_sec: Option<f64>,
     ) -> Result<PollActivityTaskQueueResponse> {
+        println!("entered poll_Activity_task");
         let request = PollActivityTaskQueueRequest {
             namespace: self.namespace.clone(),
             task_queue: Some(TaskQueue {

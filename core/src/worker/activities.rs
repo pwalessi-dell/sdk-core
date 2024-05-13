@@ -300,10 +300,15 @@ impl WorkerActivityTasks {
     /// depleted.
     pub(crate) async fn poll(&self) -> Result<ActivityTask, PollActivityError> {
         let mut poller_stream = self.activity_task_stream.lock().await;
-        poller_stream.next().await.unwrap_or_else(|| {
+        let r= poller_stream.next().await.unwrap_or_else(|| {
             self.poll_returned_shutdown_token.cancel();
             Err(PollActivityError::ShutDown)
-        })
+        });
+        println!("got r");
+        // if r.is_err() {
+        //     self.poll_returned_shutdown_token.cancel();
+        // }
+        r
     }
 
     pub(crate) async fn complete(

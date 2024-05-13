@@ -1,0 +1,33 @@
+(py-test-case) ~/d/py-test-case > python test.py
+Starting run...
+2024-05-03T18:28:28.479011Z  WARN temporal_sdk_core::worker::activities::activity_task_poller_stream: Error while polling for activity tasks error=Status { code: PermissionDenied, message: "DENIED!", metadata: MetadataMap { headers: {"content-type": "application/grpc"} }, source: None }
+2024-05-03T18:28:28.479072Z  WARN temporal_sdk_core::worker::workflow::wft_poller: Error while polling for workflow tasks error=Status { code: PermissionDenied, message: "DENIED!", metadata: MetadataMap { headers: {"content-type": "application/grpc"} }, source: None }
+2024-05-03T18:28:28.479090Z  WARN temporal_sdk_core::worker::workflow::wft_poller: Error while polling for workflow tasks error=Status { code: PermissionDenied, message: "DENIED!", metadata: MetadataMap { headers: {"content-type": "application/grpc"} }, source: None }
+2024-05-03T18:28:28.479094Z  WARN temporal_sdk_core::worker::workflow::wft_poller: Error while polling for workflow tasks error=Status { code: PermissionDenied, message: "DENIED!", metadata: MetadataMap { headers: {"content-type": "application/grpc"} }, source: None }
+2024-05-03T18:28:28.479098Z  WARN temporal_sdk_core::worker::workflow::wft_poller: Error while polling for workflow tasks error=Status { code: PermissionDenied, message: "DENIED!", metadata: MetadataMap { headers: {"content-type": "application/grpc"} }, source: None }
+2024-05-03T18:28:28.479104Z  WARN temporal_sdk_core::worker::workflow::wft_poller: Error while polling for workflow tasks error=Status { code: PermissionDenied, message: "DENIED!", metadata: MetadataMap { headers: {"content-type": "application/grpc"} }, source: None }
+2024-05-03T18:28:28.479111Z  WARN temporal_sdk_core::worker::workflow::workflow_stream: WFT poller errored, shutting down
+2024-05-03T18:28:28.479115Z ERROR temporal_sdk_core::worker::workflow::workflow_stream: Workflow processing encountered fatal error and must shut down TonicError(Status { code: PermissionDenied, message: "DENIED!", metadata: MetadataMap { headers: {"content-type": "application/grpc"} }, source: None })
+2024-05-03T18:28:28.479120Z  WARN temporal_sdk_core::worker::workflow::workflow_stream: WFT poller errored, shutting down
+2024-05-03T18:28:28.479122Z ERROR temporal_sdk_core::worker::workflow::workflow_stream: Workflow processing encountered fatal error and must shut down TonicError(Status { code: PermissionDenied, message: "DENIED!", metadata: MetadataMap { headers: {"content-type": "application/grpc"} }, source: None })
+2024-05-03T18:28:28.479125Z  WARN temporal_sdk_core::worker::workflow::workflow_stream: WFT poller errored, shutting down
+2024-05-03T18:28:28.479126Z ERROR temporal_sdk_core::worker::workflow::workflow_stream: Workflow processing encountered fatal error and must shut down TonicError(Status { code: PermissionDenied, message: "DENIED!", metadata: MetadataMap { headers: {"content-type": "application/grpc"} }, source: None })
+2024-05-03T18:28:28.479129Z  WARN temporal_sdk_core::worker::workflow::workflow_stream: WFT poller errored, shutting down
+2024-05-03T18:28:28.479131Z ERROR temporal_sdk_core::worker::workflow::workflow_stream: Workflow processing encountered fatal error and must shut down TonicError(Status { code: PermissionDenied, message: "DENIED!", metadata: MetadataMap { headers: {"content-type": "application/grpc"} }, source: None })
+2024-05-03T18:28:28.479133Z  WARN temporal_sdk_core::worker::workflow::workflow_stream: WFT poller errored, shutting down
+2024-05-03T18:28:28.479135Z ERROR temporal_sdk_core::worker::workflow::workflow_stream: Workflow processing encountered fatal error and must shut down TonicError(Status { code: PermissionDenied, message: "DENIED!", metadata: MetadataMap { headers: {"content-type": "application/grpc"} }, source: None })
+Worker failed, shutting down
+Traceback (most recent call last):
+  File "/home/pwalessi/dev/py-test-case/lib/python3.10/site-packages/temporalio/worker/_activity.py", line 160, in run
+    task = await poll_task
+  File "/home/pwalessi/dev/py-test-case/lib/python3.10/site-packages/temporalio/bridge/worker.py", line 98, in poll_activity_task
+    await self._ref.poll_activity_task()
+RuntimeError: Poll failure: Unhandled grpc error when activity polling: Status { code: PermissionDenied, message: "DENIED!", metadata: MetadataMap { headers: {"content-type": "application/grpc"} }, source: None }
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/pwalessi/dev/py-test-case/lib/python3.10/site-packages/temporalio/worker/_activity.py", line 180, in run
+    raise RuntimeError("Activity worker failed") from err
+RuntimeError: Activity worker failed
+2024-05-03T18:28:28.480214Z  WARN temporal_sdk_core::worker::activities::activity_task_poller_stream: Error while polling for activity tasks error=Status { code: PermissionDenied, message: "DENIED!", metadata: MetadataMap { headers: {"content-type": "application/grpc"} }, source: None }
